@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="WhoMeBroadcastReceiverViewer.Views.ImmediatePage">
+    <ContentPage.Content>
+        <Grid BackgroundColor="Blue">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Text="Data Received" FontSize="Title" TextColor="Yellow" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" Margin="10,10,10,0" />
+            <Label Grid.Row="1" Text="{Binding Timestamp}" FontSize="Body" TextColor="Yellow" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" Margin="10,0,10,0" />
+            <ScrollView Grid.Row="2">
+                <Label Text="{Binding MacroInfo}" TextColor="White" LineBreakMode="WordWrap" VerticalTextAlignment="Start" VerticalOptions="Start" Margin="10"/>
+            </ScrollView>
+            
+            <Grid Grid.Row="3" BackgroundColor="Black">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Command="{Binding ClearCommand}" Text="{Binding ClearButtonText}" BackgroundColor="#FF4500"/>
+                <Button Grid.Column="1" Command="{Binding ToggleCommand}" Text="{Binding ToggleButtonText}" BackgroundColor="#FF4500"/>
+            </Grid>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

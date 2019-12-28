@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TabbedPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:views="clr-namespace:WhoMeBroadcastReceiverViewer.Views"
+    x:Class="WhoMeBroadcastReceiverViewer.Views.MainPage"
+    >
+    <NavigationPage.TitleView>
+        <Grid VerticalOptions="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackLayout Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Center" Orientation="Horizontal" VerticalOptions="Center" HeightRequest="30">
+                <Image Source="whome_logo.png" WidthRequest="20" HeightRequest="20" />
+                <Label Text="Who™ Me" FontSize="16" TextColor="White" VerticalTextAlignment="Center" />
+            </StackLayout>
+            <Switch AutomationId="DiscoveryServiceSwitch" x:Name="onOffSwitch" Grid.Column="2" IsToggled="False" Margin="0,0,10,0" MinimumHeightRequest="48" />
+        </Grid>
+    </NavigationPage.TitleView>
+                <views:ImmediatePage Title="Immediate" />
+                <views:RelayedPage Title="Relayed" />
+                <views:RelayedPage Title="Regular" />
+                <views:AboutPage Title="About" />
+</TabbedPage>
