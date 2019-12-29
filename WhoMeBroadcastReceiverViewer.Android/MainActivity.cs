@@ -1,15 +1,13 @@
-﻿using System;
-
-using Android.App;
-using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using Android.OS;
+﻿using Android.App;
 using Android.Content;
-using Xamarin.Forms;
-using WhoMeBroadcastReceiverViewer.ViewModels;
+using Android.Content.PM;
+using Android.OS;
+using Android.Runtime;
+using Android.Widget;
 using GalaSoft.MvvmLight.Ioc;
+using WhoMeBroadcastReceiverViewer.Droid.BroadcastReceivers;
+using WhoMeBroadcastReceiverViewer.ViewModels;
+using Xamarin.Forms;
 
 namespace WhoMeBroadcastReceiverViewer.Droid
 {
@@ -97,72 +95,6 @@ namespace WhoMeBroadcastReceiverViewer.Droid
             {
                 Toast.MakeText(this, receivedText, ToastLength.Long).Show();
             });
-        }
-    }
-
-    public class ImmediatePersonaBroadcastReceiver : BroadcastReceiver
-    {
-        private MainActivity _mainActivity;
-        private IUpdateMacroInfo _updater;
-
-        public ImmediatePersonaBroadcastReceiver(MainActivity mainActivity, IUpdateMacroInfo updater)
-        {
-            _mainActivity = mainActivity;
-            _updater = updater;
-        }
-
-        public override void OnReceive(Context context, Intent intent)
-        {
-            string receivedText = intent.GetStringExtra("cloud.whome.apps.whome.SERIALISED_IMMEDIATE_INFODIC");
-
-            System.Diagnostics.Debug.WriteLine("cloud.whome.apps.whome.SERIALISED_IMMEDIATE_INFODIC");
-            System.Diagnostics.Debug.WriteLine(receivedText);
-
-            _updater.UpdateMacroInfo(receivedText);
-        }
-    }
-
-    public class RelayablePersonaBroadcastReceiver : BroadcastReceiver
-    {
-        private MainActivity _mainActivity;
-        private IUpdateMacroInfo _updater;
-
-        public RelayablePersonaBroadcastReceiver(MainActivity mainActivity, IUpdateMacroInfo updater)
-        {
-            _mainActivity = mainActivity;
-            _updater = updater;
-        }
-
-        public override void OnReceive(Context context, Intent intent)
-        {
-            string receivedText = intent.GetStringExtra("cloud.whome.apps.whome.SERIALISED_RELAYABLE_INFODIC");
-
-            System.Diagnostics.Debug.WriteLine("cloud.whome.apps.whome.SERIALISED_RELAYABLE_INFODIC");
-            System.Diagnostics.Debug.WriteLine(receivedText);
-
-            _updater.UpdateMacroInfo(receivedText);
-        }
-    }
-
-    public class RegularPersonaBroadcastReceiver : BroadcastReceiver
-    {
-        private MainActivity _mainActivity;
-        private IUpdateMacroInfo _updater;
-
-        public RegularPersonaBroadcastReceiver(MainActivity mainActivity, IUpdateMacroInfo updater)
-        {
-            _mainActivity = mainActivity;
-            _updater = updater;
-        }
-
-        public override void OnReceive(Context context, Intent intent)
-        {
-            string receivedText = intent.GetStringExtra("cloud.whome.apps.whome.SERIALISED_REGULAR_INFODIC");
-
-            System.Diagnostics.Debug.WriteLine("cloud.whome.apps.whome.SERIALISED_REGULAR_INFODIC");
-            System.Diagnostics.Debug.WriteLine(receivedText);
-
-            _updater.UpdateMacroInfo(receivedText);
         }
     }
 }

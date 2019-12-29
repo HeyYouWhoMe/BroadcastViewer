@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-using Xamarin.Forms;
-
 namespace WhoMeBroadcastReceiverViewer.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged

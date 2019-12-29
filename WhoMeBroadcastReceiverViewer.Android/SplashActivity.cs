@@ -1,5 +1,4 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
 using Android.Support.V7.App;
 
 namespace WhoMeBroadcastReceiverViewer.Droid

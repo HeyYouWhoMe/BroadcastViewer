@@ -1,7 +1,5 @@
-﻿using System;
+﻿using WhoMeBroadcastReceiverViewer.Views;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using WhoMeBroadcastReceiverViewer.Views;
 
 namespace WhoMeBroadcastReceiverViewer
 {

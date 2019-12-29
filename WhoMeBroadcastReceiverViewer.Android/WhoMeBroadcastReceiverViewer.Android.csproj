@@ -67,6 +67,9 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SplashActivity.cs" />
+    <Compile Include="BroadcastReceivers\RegularPersonaBroadcastReceiver.cs" />
+    <Compile Include="BroadcastReceivers\RelayablePersonaBroadcastReceiver.cs" />
+    <Compile Include="BroadcastReceivers\ImmediatePersonaBroadcastReceiver.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -120,6 +123,9 @@
       <Project>{29FDE827-7A79-4DE1-BD85-F10FB2B07B03}</Project>
       <Name>WhoMeBroadcastReceiverViewer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BroadcastReceivers\" />
   </ItemGroup>
  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using GalaSoft.MvvmLight.Ioc;
 using WhoMeBroadcastReceiverViewer.ViewModels;
 using Xamarin.Forms;
