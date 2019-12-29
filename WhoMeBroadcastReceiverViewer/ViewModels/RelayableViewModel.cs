@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 
@@ -63,10 +64,12 @@ namespace WhoMeBroadcastReceiverViewer.ViewModels
                     ToggleButtonText = "Listen";
                 }
             });
+            Debug.WriteLine("RelayableViewModel loaded");
         }
 
         public void UpdateMacroInfo(string info)
         {
+            Debug.WriteLine("Updating in RelayableViewModel");
             if (_isDisplaying)
             {
                 MacroInfo = info;

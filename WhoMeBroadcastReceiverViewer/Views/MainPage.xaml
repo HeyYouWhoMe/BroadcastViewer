@@ -24,6 +24,6 @@
     </NavigationPage.TitleView>
                 <views:ImmediatePage Title="Immediate" />
                 <views:RelayedPage Title="Relayed" />
-                <views:RelayedPage Title="Regular" />
+                <views:RegularPage Title="Regular" />
                 <views:AboutPage Title="About" />
 </TabbedPage>

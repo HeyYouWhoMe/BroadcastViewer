@@ -115,6 +115,9 @@ namespace WhoMeBroadcastReceiverViewer.Droid
         {
             string receivedText = intent.GetStringExtra("cloud.whome.apps.whome.SERIALISED_IMMEDIATE_INFODIC");
 
+            System.Diagnostics.Debug.WriteLine("cloud.whome.apps.whome.SERIALISED_IMMEDIATE_INFODIC");
+            System.Diagnostics.Debug.WriteLine(receivedText);
+
             _updater.UpdateMacroInfo(receivedText);
         }
     }
@@ -134,6 +137,9 @@ namespace WhoMeBroadcastReceiverViewer.Droid
         {
             string receivedText = intent.GetStringExtra("cloud.whome.apps.whome.SERIALISED_RELAYABLE_INFODIC");
 
+            System.Diagnostics.Debug.WriteLine("cloud.whome.apps.whome.SERIALISED_RELAYABLE_INFODIC");
+            System.Diagnostics.Debug.WriteLine(receivedText);
+
             _updater.UpdateMacroInfo(receivedText);
         }
     }
@@ -152,6 +158,9 @@ namespace WhoMeBroadcastReceiverViewer.Droid
         public override void OnReceive(Context context, Intent intent)
         {
             string receivedText = intent.GetStringExtra("cloud.whome.apps.whome.SERIALISED_REGULAR_INFODIC");
+
+            System.Diagnostics.Debug.WriteLine("cloud.whome.apps.whome.SERIALISED_REGULAR_INFODIC");
+            System.Diagnostics.Debug.WriteLine(receivedText);
 
             _updater.UpdateMacroInfo(receivedText);
         }
