@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Widget;
 using GalaSoft.MvvmLight.Ioc;
 using WhoMeBroadcastReceiverViewer.Droid.BroadcastReceivers;
+using WhoMeBroadcastReceiverViewer.Services;
 using WhoMeBroadcastReceiverViewer.ViewModels;
 using Xamarin.Forms;
 
@@ -28,6 +29,11 @@ namespace WhoMeBroadcastReceiverViewer.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
+
+            if (!SimpleIoc.Default.IsRegistered<IMyAzureEventHubService>())
+            {
+                SimpleIoc.Default.Register<IMyAzureEventHubService>(() => new MyAzureEventHubService());
+            }
 
             if (!SimpleIoc.Default.IsRegistered<ImmediateViewModel>())
             {
