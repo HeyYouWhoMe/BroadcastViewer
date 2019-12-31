@@ -1,10 +1,10 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace WhoMeBroadcastReceiverViewer.Services
 {
     public interface IMyAzureEventHubService
     {
         Task Send(string receivedSerialisation, string guidFilter);
+        Task CloseEventHubConnection();
     }
 }

@@ -29,7 +29,7 @@ namespace WhoMeBroadcastReceiverViewer.Droid.BroadcastReceivers
 
             // If you want to send this infoamtion over a network, create a service and pass the info to it here!
 
-            _eventHub.Send(receivedText, "9c8eb14d-8c73-4399-bd0e-32ccd28066fa"); // Put the Persona Guid you want to filter for, here! 
+            _eventHub.Send(receivedText, "86f9519b-fbde-4f86-828e-75f37df17665"); // Put the Persona Guid you want to filter for, here! 
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using WhoMeBroadcastReceiverViewer.ViewModels;
+using Xamarin.Forms;
 
 namespace WhoMeBroadcastReceiverViewer.Views
 {
@@ -7,6 +8,8 @@ namespace WhoMeBroadcastReceiverViewer.Views
         public AboutPage()
         {
             InitializeComponent();
+
+            this.BindingContext = new AboutViewModel();
         }
     }
 }

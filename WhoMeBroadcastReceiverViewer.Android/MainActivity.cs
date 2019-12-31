@@ -15,6 +15,8 @@ namespace WhoMeBroadcastReceiverViewer.Droid
     [Activity(Label = "Broadcast Viewer", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+        private IMyAzureEventHubService _eventHubService;
+
         private ImmediatePersonaBroadcastReceiver _immediatePersonaBroadcastReceiver;
         private RelayablePersonaBroadcastReceiver _relayablePersonaBroadcastReceiver;
         private RegularPersonaBroadcastReceiver _regularPersonaBroadcastReceiver;
@@ -30,9 +32,10 @@ namespace WhoMeBroadcastReceiverViewer.Droid
 
             base.OnCreate(savedInstanceState);
 
+            _eventHubService = new MyAzureEventHubService();
             if (!SimpleIoc.Default.IsRegistered<IMyAzureEventHubService>())
             {
-                SimpleIoc.Default.Register<IMyAzureEventHubService>(() => new MyAzureEventHubService());
+                SimpleIoc.Default.Register<IMyAzureEventHubService>(() => _eventHubService);
             }
 
             if (!SimpleIoc.Default.IsRegistered<ImmediateViewModel>())
@@ -86,13 +89,15 @@ namespace WhoMeBroadcastReceiverViewer.Droid
             RegisterReceiver(_regularPersonaBroadcastReceiver, regularFilter);
         }
 
-        protected override void OnDestroy()
+        protected async override void OnDestroy()
         {
             base.OnDestroy();
 
             UnregisterReceiver(_immediatePersonaBroadcastReceiver);
             UnregisterReceiver(_relayablePersonaBroadcastReceiver);
             UnregisterReceiver(_regularPersonaBroadcastReceiver);
+
+            await _eventHubService.CloseEventHubConnection();
         }
 
         internal void MakeToast(string receivedText)

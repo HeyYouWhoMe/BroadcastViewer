@@ -11,8 +11,8 @@ namespace WhoMeBroadcastReceiverViewer.Services
     public class MyAzureEventHubService : IMyAzureEventHubService
     {
         private static EventHubClient eventHubClient;
-        private const string EventHubConnectionString = "[Put your SHARED ACCESS POLICY SAS 'Hub Connection' String here!!!]";
-        private const string EventHubName = "[Put thE NAME of your EVENT HUB here!!!!]";
+        private const string EventHubConnectionString = "Endpoint=sb://faademonamespace.servicebus.windows.net/;SharedAccessKeyName=faademosas;SharedAccessKey=15XEv+I5J3RyFX4GC0B9+nZJlyFZqpcL/1Fkcv8afTI=;EntityPath=faademoeventhub";
+        private const string EventHubName = "faademoeventhub";
 
         public MyAzureEventHubService()
         {
@@ -35,15 +35,28 @@ namespace WhoMeBroadcastReceiverViewer.Services
             {
                 if (sharedModel.PersonaGuid.Equals(guidFilter))
                 {
+                    string jsonString = string.Empty;
 
-                    var eventHubDataTransmission = new EventHubModel(sharedModel.PersonaGuid, sharedModel.InfoDic);
-                    var serialisedTransmission = JsonConvert.SerializeObject(eventHubDataTransmission);
+                    // Event Hub Property Model serialisation
+                    
+                    var eventHubInfoDicDataTransmission = new EventHubInfoDicModel(sharedModel.PersonaGuid, sharedModel.InfoDic);
+                    var serialisedEventHubInfoDicDataTransmission = JsonConvert.SerializeObject(eventHubInfoDicDataTransmission);
+                    jsonString = serialisedEventHubInfoDicDataTransmission;
+                    
+
+                    // Event Hub Info Dictionary serialisation
+                    /*
+                    var eventHubPropertyDataTransmission = new EventHubPropertyModel(sharedModel.PersonaGuid, sharedModel.InfoDic);
+                    var serialisedEventHubPropertyDataTransmission = JsonConvert.SerializeObject(eventHubPropertyDataTransmission);
+                    jsonString = serialisedEventHubPropertyDataTransmission;
+                    */
+
 
                     Debug.WriteLine("EVENT HUB TRANSMISSION---------------------");
-                    Debug.WriteLine(serialisedTransmission);
+                    Debug.WriteLine(jsonString);
                     Debug.WriteLine("END---------------------");
 
-                    await eventHubClient.SendAsync(new EventData(Encoding.UTF8.GetBytes(serialisedTransmission)));
+                    await eventHubClient.SendAsync(new EventData(Encoding.UTF8.GetBytes(jsonString)));
                 }
             }
             catch (Exception exception)

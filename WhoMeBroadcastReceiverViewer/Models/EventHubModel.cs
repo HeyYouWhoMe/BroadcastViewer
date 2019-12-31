@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace WhoMeBroadcastReceiverViewer.Models
 {
-    public class EventHubModel
+    public class EventHubInfoDicModel
     {
-        public EventHubModel(string personaGuid, Dictionary<string,string> infoDic)
+        public EventHubInfoDicModel(string personaGuid, Dictionary<string,string> infoDic)
         {
             Guid = personaGuid;
             InfoDic = infoDic;

@@ -3,7 +3,10 @@ using Android.Support.V7.App;
 
 namespace WhoMeBroadcastReceiverViewer.Droid
 {
-    [Activity(Label = "Broadcast Viewer", Icon = "@mipmap/icon", Theme = "@style/splashscreen", MainLauncher = true, NoHistory = true)]
+    [Activity(Label = "Broadcast Viewer",
+        Icon = "@mipmap/icon",
+        Theme = "@style/splashscreen", MainLauncher = true,
+        NoHistory = true)]
     public class SplashActivity : AppCompatActivity
     {
         protected override void OnResume()
