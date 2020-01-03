@@ -42,16 +42,7 @@ namespace WhoMeBroadcastReceiverViewer.Services
                     var eventHubInfoDicDataTransmission = new EventHubInfoDicModel(sharedModel.PersonaGuid, sharedModel.InfoDic);
                     var serialisedEventHubInfoDicDataTransmission = JsonConvert.SerializeObject(eventHubInfoDicDataTransmission);
                     jsonString = serialisedEventHubInfoDicDataTransmission;
-                    
-
-                    // Event Hub Info Dictionary serialisation
-                    /*
-                    var eventHubPropertyDataTransmission = new EventHubPropertyModel(sharedModel.PersonaGuid, sharedModel.InfoDic);
-                    var serialisedEventHubPropertyDataTransmission = JsonConvert.SerializeObject(eventHubPropertyDataTransmission);
-                    jsonString = serialisedEventHubPropertyDataTransmission;
-                    */
-
-
+                   
                     Debug.WriteLine("EVENT HUB TRANSMISSION---------------------");
                     Debug.WriteLine(jsonString);
                     Debug.WriteLine("END---------------------");

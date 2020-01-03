@@ -2548,6 +2548,123 @@ Do something about it or kiss your egg goodbye!
 
 ### When you put your own Companion Apps in the Google Play Store, please let us know via ```developers@whome.cloud```, once the Who™ Me Cloud comes online, we will want to advertise those Companion Apps that we know about!
 
+# 8 Bonus Illustration!
+
+Although we dumped the whole InfoDic in the Event Hub in a single column - because, indeed, all the properties are searchable because it is dumped in JSON format - for those wishing to know how to dump the same information with every property having its own column in the Event Hub, we have created an additional class as an illustration of how to do so!
+
+```
+
+    public class EventHubPropertyModel
+    {
+        public string Guid { get; private set; }
+        public string Latitude { get; private set; }
+        public string Longitude { get; private set; }
+        public string FlightNumber { get; private set; }
+        public string DroneId { get; private set; }
+        public string DroneIdCountryCode { get; private set; }
+        public string Speed { get; private set; }
+        public string Heading { get; private set; }
+        public string BarometricPressure { get; private set; }
+        public string Timestamp { get; private set; }
+
+        public EventHubPropertyModel(string personaGuid, Dictionary<string, string> infoDic)
+        {
+            var guid = string.Empty;
+            var latitude = string.Empty;
+            var longitude = string.Empty;
+            var name = string.Empty;
+            var flightNumber = string.Empty;
+            var id = string.Empty;
+            var idCountryCode = string.Empty;
+            var speed = string.Empty;
+            var heading = string.Empty;
+            var pressure = string.Empty;
+            var timestamp = string.Empty;
+
+            infoDic.TryGetValue("1", out latitude);
+            infoDic.TryGetValue("2", out longitude);
+            infoDic.TryGetValue("A", out flightNumber);
+            infoDic.TryGetValue("B", out id);
+            infoDic.TryGetValue("C", out idCountryCode);
+            infoDic.TryGetValue("E", out speed);
+            infoDic.TryGetValue("F", out heading);
+            infoDic.TryGetValue("G", out pressure);
+            infoDic.TryGetValue("H", out timestamp);
+
+            Guid = personaGuid;
+
+            Latitude = latitude;
+            Longitude = longitude;
+            FlightNumber = flightNumber;
+            DroneId = id;
+            DroneIdCountryCode = idCountryCode;
+            Speed = speed;
+            Heading = heading;
+            BarometricPressure = pressure;
+            Timestamp = timestamp;
+        }
+    }
+```
+
+Then, in the MyAzureEventHubService, change the following line:
+
+```
+var eventHubInfoDicDataTransmission = new EventHubInfoDicModel(sharedModel.PersonaGuid, sharedModel.InfoDic);
+```
+
+to
+
+```
+var eventHubInfoDicDataTransmission = new EventHubPropertyModel(sharedModel.PersonaGuid, sharedModel.InfoDic);
+```
+
+_It is as easy as that!_
+
+The pattern is simply this:
+
+If you Serialise a class that you make to JSON, using JsonConvert, for example, as follows:
+
+```
+var eventHubInfoDicDataTransmission = new EventHubPropertyModel(sharedModel.PersonaGuid, sharedModel.InfoDic);
+var serialisedEventHubInfoDicDataTransmission = JsonConvert.SerializeObject(eventHubInfoDicDataTransmission);
+jsonString = serialisedEventHubInfoDicDataTransmission;
+```
+
+then the public property names become the column names in the Event Hub!
+
+vis-a-vis:
+
+```
+public string ThisNameBecomesTheColumnName { get; private set; }
+```
+
+Hence, you will be able to see that in the above ```EventHubPropertyModel``` class that I created, that the following snippet
+
+```
+...
+
+public string Guid { get; private set; }
+public string Latitude { get; private set; }
+public string Longitude { get; private set; }
+public string FlightNumber { get; private set; }
+public string DroneId { get; private set; }
+public string DroneIdCountryCode { get; private set; }
+public string Speed { get; private set; }
+public string Heading { get; private set; }
+public string BarometricPressure { get; private set; }
+public string Timestamp { get; private set; }
+
+...
+```
+
+causes the following Event Hub columns to be created, passing into it a row of data from the values in the properties shown!
+
+```
+Guid | Latitude | Longitude | FlightNumber | DroneId | DroneIdCountryCode | Speed | Heading | Barometric Pressure | Timestamp
+```
+
+
+
 Copyright &copy; Who™ Me, 2019, 2020 
 
 http://www.whome.cloud

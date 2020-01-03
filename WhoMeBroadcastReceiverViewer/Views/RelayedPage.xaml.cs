@@ -17,8 +17,6 @@ namespace WhoMeBroadcastReceiverViewer.Views
             base.OnAppearing();
 
             this.BindingContext = SimpleIoc.Default.GetInstance<RelayableViewModel>();
-
-            Debug.WriteLine("RelayableViewModel Bound");
         }
     }
 }

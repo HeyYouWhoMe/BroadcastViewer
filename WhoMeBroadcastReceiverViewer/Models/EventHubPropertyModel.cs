@@ -7,13 +7,12 @@ namespace WhoMeBroadcastReceiverViewer.Models
         public string Guid { get; private set; }
         public string Latitude { get; private set; }
         public string Longitude { get; private set; }
-        public string DroneName { get; private set; }
         public string FlightNumber { get; private set; }
         public string DroneId { get; private set; }
         public string DroneIdCountryCode { get; private set; }
-        public string DroneSpeed { get; private set; }
-        public string DroneHeading { get; private set; }
-        public string DroneBarometricPressure { get; private set; }
+        public string Speed { get; private set; }
+        public string Heading { get; private set; }
+        public string BarometricPressure { get; private set; }
         public string Timestamp { get; private set; }
 
         public EventHubPropertyModel(string personaGuid, Dictionary<string, string> infoDic)
@@ -30,28 +29,26 @@ namespace WhoMeBroadcastReceiverViewer.Models
             var pressure = string.Empty;
             var timestamp = string.Empty;
 
-            infoDic.TryGetValue("", out guid);
-            infoDic.TryGetValue("", out latitude);
-            infoDic.TryGetValue("", out longitude);
-            infoDic.TryGetValue("", out name);
-            infoDic.TryGetValue("", out flightNumber);
-            infoDic.TryGetValue("", out id);
-            infoDic.TryGetValue("", out idCountryCode);
-            infoDic.TryGetValue("", out speed);
-            infoDic.TryGetValue("", out heading);
-            infoDic.TryGetValue("", out pressure);
-            infoDic.TryGetValue("", out timestamp);
+            infoDic.TryGetValue("1", out latitude);
+            infoDic.TryGetValue("2", out longitude);
+            infoDic.TryGetValue("A", out flightNumber);
+            infoDic.TryGetValue("B", out id);
+            infoDic.TryGetValue("C", out idCountryCode);
+            infoDic.TryGetValue("E", out speed);
+            infoDic.TryGetValue("F", out heading);
+            infoDic.TryGetValue("G", out pressure);
+            infoDic.TryGetValue("H", out timestamp);
 
-            Guid = guid;
+            Guid = personaGuid;
+
             Latitude = latitude;
             Longitude = longitude;
-            DroneName = name;
             FlightNumber = flightNumber;
             DroneId = id;
             DroneIdCountryCode = idCountryCode;
-            DroneSpeed = speed;
-            DroneHeading = heading;
-            DroneBarometricPressure = pressure;
+            Speed = speed;
+            Heading = heading;
+            BarometricPressure = pressure;
             Timestamp = timestamp;
         }
     }
