@@ -18,7 +18,7 @@ namespace WhoMeBroadcastReceiverViewer.Droid.BroadcastReceivers
             _eventHub = SimpleIoc.Default.GetInstance<IMyAzureEventHubService>();
         }
 
-        public override void OnReceive(Context context, Intent intent)
+        public async override void OnReceive(Context context, Intent intent)
         {
             string receivedText = intent.GetStringExtra("cloud.whome.apps.whome.SERIALISED_RELAYABLE_INFODIC");
 
@@ -27,9 +27,10 @@ namespace WhoMeBroadcastReceiverViewer.Droid.BroadcastReceivers
 
             _updater.UpdateMacroInfo(receivedText);
 
-            // If you want to send this infoamtion over a network, create a service and pass the info to it here!
+            // If you want to send this information over a network, create a service and pass the info to it here!
 
-            _eventHub.Send(receivedText, "86f9519b-fbde-4f86-828e-75f37df17665"); // Put the Persona Guid you want to filter for, here! 
+            await _eventHub.Send(receivedText, "86f9519b-fbde-4f86-828e-75f37df17665");  // The Drone Guid
+            await _eventHub.Send(receivedText, "b93111cd-fa20-4727-9e8d-afef36560044");  // The Pilot Guid
         }
     }
 }
