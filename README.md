@@ -2811,7 +2811,7 @@ Of course, the latter will be refined when the Companion Apps won't have to be o
 
 ## C. Automating Who™ Me Personas
 
-Being in the public eye is a choice, and as has already been the case for tens of thousands of years, real-world close-proximity means that they already know that you are there anyway!
+Being in the public eye is organic, and as has already been the case for tens of thousands of years, real-world close-proximity means that 'they already know that you are there' anyway!
 
 Sometimes the distractions of our virtual world makes us forget the significance of real-world activities, and the phrase 'being in the public eye' is rooted in the matter that real-world people could see you in real-world close-proximity in real-world-public-places.
 
@@ -2821,11 +2821,13 @@ Similarly, those who receive your persona projections will be organically filter
 
 It is going to be nice when we add a picker feature that allows the Sender to choose at what time his persona automatically starts broadcasting, and at what time it stops broadcasting, such as to coincide with his workday. 
 
+Similalry, adding geofencing to define when a persona is on or off, will be a doddle - so for example, an employee persona might only switch itself on automatically, when not only is he inside a particular geofence, but that being so also corresponds with the hours of his workday.
+
 After that will come context switching, with responses to Persona broadcasts automatically switching different Personas on and off, as well as changing particulars of the sending field values of a Persona, by other persona receptions that have both the association and authority to make such property changes.
 
 Personas automatically switching on and off according to context, time of day, activity, and capability, driving others to do the same, will drive industry, and industries, forwards at a forever faster pace!
 
-Success will become defined not just as one's capacity to present the right persona or personas, at the very right time, but to dynamically change them as well as switch them and others, on and off, according to the received inputs of the prevailing others.
+Success will become defined not just as one's capacity to present the right persona or personas, at the very right time, but one's capacity to dynamically change them over time as well as switch them and others, on and off, doing so according to the received inputs of the prevailing others.
 
 It's called a conversation.
 
