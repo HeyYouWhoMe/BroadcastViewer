@@ -35,6 +35,8 @@
 
 * Automatically relay real-time flight data that you receive on your Drone Pilot handset from your drone, straight into the same event hub, catering for the case that  the drone's own data-channel goes down.
 
+* Visualise how you can create independant 'decloupled' applications that can retrieve this information to display this information on a map, or forward it to an FAA UAV DA (Data Aggregator) so that others can view your flight data in real-time. We will give you some great pointers here, and eventually create tutorials that give you some out-of-the-box applications that you can use as-is, or modify for your own needs. 
+
 ![](assets/data.png "")
 
 ## At the completion of this tutorial you will be able to:
@@ -63,7 +65,7 @@ Code illustration:
 
 * ```Automatically generate Flight Logs``` to satisfy your country's legislation that prevails over commercial drone operators and which mandate specific requirements in connection with Flight Log keeping.
 
-* Until we write specific tutorials for these, you will have to rely on generic third-party tutorials about how to retrieve information from an Event Hub, how to put that in another database, and how to automatiaclly generate documents based upon retrieving data from a data base. It's not rocket-science, and there are plenty of tutorials about! But watch this space!
+* Until we write specific tutorials for these, you will have to rely on generic third-party tutorials about how to retrieve information from an Event Hub, how to put that in another database, and how to automatically generate documents based upon retrieving data from a data base. It's not rocket-science, and there are plenty of tutorials about! But watch this space!
 
 ## <sup>*</sup> Notes about the phrase _FAA Compliant_:
 
@@ -95,11 +97,15 @@ _However let's even broaden this further!_
 
 Imagine every drone worldwide reporting it's flight number, drone id and drone id country code, latitude, longitude, altitude, speed, heading, barometric pressure, and a timestamp - _and doing so every second, or even more frequently_ - and you will get the gist about the immense parallel ingest demands that event hubs need to cater for! 
 
-The concept of a variation of the back-end to this event hub was demonstrated by the author and his hackathon team, a few years ago at a Microsoft Azure Event Hub Hackathon, at Reading in the UK, which is one of the UK's many 'Silicon Valley' regions. 
+This is also the reason why every forwards-seeking nation should be studying the FAAs initiative, as outlined in the document above.
+
+You will also realse that a worldwide UAV ('drone') Traffic Management System (UAV TMS) is more than likely going to consist of a distributed set of regional aggregators, so that any receiving, decoupled, application that could display flight data at any partiular location, worldwide, would take it's feed from a UAV TMS Routing Distibutor Hub (UAV TMS RDH, in context, RDH) that drew the information that the user wished to display, from the relevant UAV TMS RA (drone traffic management system regional aggregator), which in turn had taken any of it's feeds from any of numerous, contributing, individual UAV TMS Event Hubs (UAV TMS EH, in context, EH), such as a regional club EH that was managed by an association of enthusiasts, such as an FPV Racing Club, or a regional county-based hub that was managed by local government, or an NGO. 
+
+The concept of a variation of the back-end to this event hub was demonstrated by the author and his hackathon team, a few years ago at a Microsoft Azure Event Hub Hackathon, at Reading in the UK, which is one of the UK's many 'Silicon Valley' regions. It will be interesting to see if the video of this event can be uncovered! 
 
 What is totally new, here, is how the drone and remote pilot report this information to the Event Hub endpoints that have been previously demonstrated.
 
-_Here, you are going to create two Custom Who™ Me Proximity Personas (one for the pilot and one for the drone) that you can share to install on any Who™ Me installation, and then you are going to create your very own Companion App that you can install on any device alongside the Who™ Me app so that you can use Who™ Me to drive your own business forwards. We are using this generic case as an example of whatever you can dream up._
+_Here, you are going to create two Custom Who™ Me Proximity Personas (one for the pilot and one for the drone) that you can share to install on any Who™ Me installation, and then you are going to create your very own Companion App that you can install on any device alongside the Who™ Me app so that you can use Who™ Me to drive your own business forwards. We are using this generic case as an example of whatever you can dream up. You may, for instance, just wish to track when the local Postman passes by, or when indivuduals arrive at a particular, ticketed outdoor event._
 
 The following is an example of a Who™ Me Proximity Persona in raw text form and it actually exists in the Who™ Me App as a Well-Known Proxinity Persona. 
 
@@ -297,7 +303,7 @@ It is named ```FAA Compliant UAV Control Station (V1) ``` and will be able to be
 }
 ```
 
-You will notice that both the drone and pilots Proximity Profiles are essentially the same, but with different IDs, names, and labels.
+You will notice that both the drone's and pilot's Proximity Profiles are essentially the same, but with different IDs, names, and labels.
 
 _It is, of course, a curious thing to see that the pilot's "Control Station" Proximity Profile also contains Altitude, Speed, and Heading, but what if the pilot was flying the drone from a helicopter!_
 
@@ -320,9 +326,9 @@ The actual transmission that you will be intercepting and sending to the Event H
   }
 ```
 
-The actual ServiceInfoDictionary in a profile - and hence the InfoDic that is transmitted - depends upon the actual structure of a specific persona that it represents. The reason I've only illustrated one ServiceDictionary is that the ServiceInfoDictionary's for both of the above personas is the same.
+The actual ServiceInfoDictionary in a profile - and hence the InfoDic that is transmitted - depends upon the actual structure of a specific persona that it represents. The reason I've only illustrated one ServiceInfoDictionary is that the ServiceInfoDictionary's for both of the above personas is the same.
 
-You can see some examples of actual InfoDic transmissions to the event hub in the following Event Hub Screenshot.
+You can see some examples of actual InfoDic transmissions to the event hub in the following Event Hub screenshot.
 
 You will notice some missing fields, notably altitude, heading, and speed. If the device doesn't have data to report, it doesn't send the field, and in the case of the screenshot, my drone was on the table beside me: it wasn't moving, hence it's speed and heading data was not being generated by the device, and the device's GPS location wasn't reporting altitude. I've noticed that when indoors, that the altitude measurement comes and goes, but I have learnt that my workshop is 140 meters above sea-level, because that is the altitude it does report, when it actually sends data.
 
@@ -338,7 +344,7 @@ _Also, so much for anonymity, all of the GPS locations and photos are the locati
 
 _In this illustration-by-example, we are going to create two ```Custom Proximity Persona™``` to track a drone in real time, using a data-set that satisfies the new United States (draft, at the time of writing) ```FAA Gudelines``` for ```Unmanned aircraft systems traffic management```._
 
-Because the FAA wants to compare the drone's barometric pressure reading with a known 'control station' barometric reading, in addition to creating a proximity persona for the drone, we are also going to create one for the remote pilot who flies the drone. However, as these profiles will essentially be the same, we need only create the one for the drone, and duplicate it with minor amendments for the remote pilot, eg. duplicate the file, change it's filename, change the heading, change the GUID, change some of the labels from saying 'Drone' to 'Control Station', and change the Description and Info Label narratives.
+Because the FAA wants to compare the drone's barometric pressure reading with a known 'control station' barometric reading, in addition to creating a proximity persona for the drone, we are also going to create one for the remote pilot who flies the drone. However, as these profiles will essentially be the same, we need only create the one for the drone, and duplicate it with minor amendments for the remote pilot, eg. duplicate the file, change it's filename, change the title heading, change the GUID, change some of the labels from saying 'Drone' to 'Control Station', and change the Description and Info Label narratives.
 
 As background reading, please read the cover page, as well as pages 72519 and 72520, of the FAA document that is in the link in the section above that is titled "Notes about the phrase FAA Compliant". 
 
@@ -368,9 +374,9 @@ _However it is important to know:_
 
 There are real benefits of you reacreating the existing Well-Known Proximity Persona as a Custom Proximity Persona with a different GUID, even if it is just so that you can create a Companion App without being on everyone's radar until you go to market with it! 
 
-Having said that, if everyone ordinarily flies with the existing Well-Known Persona, then - using the technology described in this project - anyone would be able to build either a fixed or portable drone detector. It would be useful, for example, for some organisations to have a big-screen in the office that displayed drone activity in the precinct! Of course, there are other solutions that would satisfy the same outcome, such as pulling a data-feed from a Drone Event Hub and displaying that information as an alternative. As with all things in business, it all comes down to use-cases!
+Having said that, if everyone ordinarily flies with the existing Well-Known Persona, then - using the technology described in this project - anyone would be able to build either a fixed or portable drone detector. It would be useful, for example, for some organisations to have a big-screen in the office that displayed drone activity in the precinct! Of course, there are other solutions that would satisfy the same outcome, such as pulling a data-feed from a UAV TMS EH (an Event Hub), or UAV TMS RA (regional aggregator) and displaying that information as an alternative. As with all things in business, it all comes down to use-cases!
 
-But it is not unreasonable to think that it could be legislated that specific Well-Known Proximity Personas - or specific publicly distributed Custom Proximity Personas - should be broadcast in certain flight zones, such as operating in, or around, airports, or infrastructures such as power stations. 
+But it is not unreasonable to think that it could be legislated that specific Well-Known Proximity Personas - or specific publicly distributed Custom Proximity Personas - should be broadcast in certain local government regions or flight zones, such as operating in, or around, certain counties, airports, or infrastructures such as power stations. 
 
 _Pre-amble aside, once we create this Custom Proximity Profile, which you can use as an example about how to create any other one, we are then going to create a Companion App to install alongside the Who™ Me app, to demonstrate how you can create any of your own Companion Apps to install alongside the Who™ Me app to drive your business forwards!_
 
@@ -378,7 +384,7 @@ _Pre-amble aside, once we create this Custom Proximity Profile, which you can us
 
 Who™ Me is presently in a private Beta Closed Testing phase but it's public release in the Google Play Store is imminent.
 
-The Google Play Store informs us that is is capable of being installed on 11750 device models.
+The Google Play Store informs us that is is capable of being installed on 11750 device models, and we have tested it on over a hundred devices.
 
 ![](assets/store1.png "")
 
@@ -424,16 +430,59 @@ Note that both Pilot and Drone personas have the common fields of ```Flight Numb
 
 To make this demonstration easier, we will concentrate on just creating the drone's ```Custom Proximity Profile™```, and a single ```Companion App``` that can firehose both drone and pilot persona data into the same Event Hub. We have already given you the Well-Known Proximity Personas for both of these, so you should be able to use these examples to be able to create your pilot persona yourself.
 
-Using the app for both roles does, however, have one disadvantage, and that is that we wont be accommodating one data field, the one called ```UAV Emergency Status ```.
+Using the app for both roles does, however, have one disadvantage, and that is that we wont be accommodating one data field, the one called ```UAV Emergency Status```.
 
 ```
-It will, however, be a doddle for developers wishing to create two Companion Apps, to add this feature to the Control Station version, making sure that the Control Station app adds it to the info that it sends to the event hub. The UI for this just needs a series of buttons to represent different states, and the pilot can manually change the state as the state of the drone goes from being in a normal state, to another state. We will be clever and define that the absence of such a data field in the transmission of the data to the event hub, implies that the drone is in a normal state, and if drone information stops being transmitted, that the drone will be in a 'lost connection' state. So to a degree, the UAV Emergency Status is being indicated anyway.
+It will, however, be a doddle for developers wishing to create two Companion Apps, to add this feature to the Control Station version, making sure that the Control Station app adds it to the info that it sends to the event hub. The UI for this just needs a series of buttons to represent different states, and the pilot can manually change the state as the state of the drone goes from being in a normal state, to another state. 
 
-Also, we have a feature in the pipeline where custom data pickers will be able to be created in the Custom Profile Editor, which will allow an additional field to be added to the Control Station proximity persona, so that the pilot will be able to tap it and make a status change to the data that he is sending into the Event Hub. We could have added a text box now where the pilot manually tapped in a status code, but as developers we think that that would be tacky, we'd rather wait for the emergence of the custom data picker creation utility in a future release of the Who™ Me app.
+We will be clever and define that the absence of such a data field in the transmission of the data to the event hub, implies that the drone is in a normal state, and if drone information stops being transmitted, that the drone will be in a 'lost connection' state when it stops appearing in the event hub and yet the control station information keeps appearing. So to a degree, the UAV Emergency Status is being indicated anyway.
 
-Nevertheless, we'll get an app into the Google Play Store soon that has the capacity for the Control Station operator to manually change the UAV Emergency Status in the Companion app. We will do this because we envisage that an update to that app will have a bluetooth channel available to it so that operators can build their own hardware that automatically changes the status, depending upon their setup. For example, they might fit a ZigBee transmitter with a range of 50 km onto their drone, and receive the drone's status changes on a corresponding ZigBee receiver. Alternatively, a device on the drone could be configured to talk to the Companion App on the drone by Bluetooth, altering the status flags that are sent to the Event Hub.
+Also, we have a feature in the pipeline where custom data pickers will be able to be created in the Custom Persona Editor, which will allow an additional field to be added to the Control Station proximity persona, so that the pilot will be able to tap it and make a status change to the data that he is sending into the Event Hub. 
 
-Doing things like this is already second nature to the FPV community!
+We could have added a text box now where the pilot manually tapped in a status code, but as developers we think that that would be tacky, we'd rather wait for the emergence of the custom data picker creation utility in a future release of the Who™ Me app. 
+
+This will add just two characters to the length of the InfoDic that is transmitted by the persona, key name an emergency status that are both a single digit in length, so V2 of the persona is likely to have the following changed from
+
+  "KeyNameMap": {
+    "1": "Latitude",
+    "2": "Longitude",
+    "A": "Flight Number",
+    "B": "Drone Id",
+    "C": "Drone Id Country Code",
+    "D": "Control Station Altitude",
+    "E": "Control Station Speed",
+    "F": "Control Station Heading",
+    "G": "Barometric Pressure",
+    "H": "Time Stamp",
+    "I": "Immediate Macro Sync",
+    "J": "Relayable Macro Sync"
+  }
+
+  to
+
+    "KeyNameMap": {
+    "1": "Latitude",
+    "2": "Longitude",
+    "A": "Flight Number",
+    "B": "Drone Id",
+    "C": "Drone Id Country Code",
+    "D": "Control Station Altitude",
+    "E": "Control Station Speed",
+    "F": "Control Station Heading",
+    "G": "Barometric Pressure",
+    "H": "Time Stamp",
+    "I": "Emergency Status",
+    "J": "Immediate Macro Sync",
+    "K": "Relayable Macro Sync"
+    }
+
+(note the additon of "I": "Emergency Status" in the second one, with the two keys that follow renamed), with similar changes cascading through the ServiceInfoDictionary, KeyTypeMap, KeyToMacroIdMap, MacroIdToKeyMap, and EditableKeys dictionaries.
+
+Nevertheless, we'll get an app into the Google Play Store soon that has the capacity for the Control Station operator to manually change the UAV Emergency Status in the Companion app. We will do this because we envisage that an update to that app will have a bluetooth channel available to it so that operators can build their own hardware that automatically changes the status, depending upon their setup. For example, they might fit a ZigBee transmitter with a range of 50 km onto their drone, and receive the drone's status changes on a corresponding ZigBee receiver. 
+
+Alternatively, a device on the drone could be configured to talk to the Companion App on the drone by Bluetooth, altering the status flags that are sent to the Event Hub. These will require an open specification and for simplicity will likely include a snippet of JSON sent to a receiving Bluetooth Text Terminal like { "uavemergencystatus":"0" } to indicate normal.
+
+Stacking technology like this is already second nature to the FPV community!
 ```
 
 As homework, all you need to do is replicate similar steps for the pilot's control station proximity persona, as you do here for the drone's, because satisfying the FAA's requirements will be a matter of how to get the common information **out** of the Event Hub and directing it to a common, official, ```FAA Traffic Management Aggregator``` so that information about all drones are commonly available to any service that needs it. 
@@ -484,7 +533,7 @@ If you want to edit this part later on your computer desktop, just type ```Info`
 
 ## d. Let's finalise our Data Set, but add some additional fields to the FAA's minimum because it makes sense to us to do so
 
-* **Flight Number** - so that the data backend can link the drone persona and the pilot persona together by Flight Number, Drone Id, and Drone Id Country Code
+* **Flight Number** - so that the data backend can link the drone persona and the pilot control station persona together by Flight Number, Drone Id, and Drone Id Country Code
 * **Drone Id** - catering for our self assigned Identity Number, but being capable of storing a national or international Identity Number.
 * **Drone Id County Code** - catering for national and international Drone Id Scenarios, if they ever materialise
 * **Drone Latitude** - the present latitude of the drone
@@ -664,7 +713,11 @@ It was Andy who helped me assimilate the above FAA document the same day that we
 
 It's results that count, and we believe that we have a pretty good 'over-the-horizon radar' that helps us to predict the future direction of the industry. 
 
-We believe that it wont be long before the DJI Mavic 2 drone is old technology, because we are expecting a new range of next generation drones coming to market that have the capacity to download apps from the Google Play Store, having built-in Drone Pigs.
+We believe that it wont be long before the DJI Mavic 2 drone is old technology, because we are expecting a new range of next generation drones coming to market that have the capacity to download apps from the Google Play Store, having built-in Drone Pigs. 
+
+Naturally, some marketeers are going to call the drones with built-in Drone Pigs by the name Smart Drones, but having the same definition - a drone that has the capacity to download an app from the Google Play Store. 
+
+Never-the-less, external Drone Pigs have been duly christened, becauae just like the computer mouse when it was invented, there wasn't an other name that was more apt at the time of their creation.
 
 We created the drone-pig housing so that you and other creators can modify the pig to snap-onto any drone, and we hope that you will see many of these quickly become available for you to print. Or adapt the files yourself!
 
@@ -675,15 +728,17 @@ There's a great video on YouTube about the Snapdragon 855 Development Kit here: 
 We believe that Who™ Me will drive this market forwards, and in time that you will see three things:
 
 * **Snapdragon 855 based Drone-Pigs** being made available to attach to a range of existing drones, such as those used in Search and Rescue (which is where we started), which will be capable of downloading apps from the Google Play Store.
-* **Drones with Built-In Drone-Pigs** that are built around the ilk of the Snapdragon 855 and are similarly capable of downloading apps from the Google Play Store.
+* **Drones with Built-In Drone-Pigs called Smart Drones** that are built around the ilk of the Snapdragon 855 and are similarly capable of downloading apps from the Google Play Store.
 * **Plenty of Drone Apps** being created by a wide range of developers, to satisfy the intense thirst for almost unlimited drone capabilty.
 
-The current generation of drones are essentially a 'closed garden', to use an industry term - and as a developer, trying to get DJI's log-file specification out of them illustrates that, it was their non-reactive, closed behaviour that put me on the path of creating open specifications for drones in the first place. The last time I saw DJI's Developer Group on Facebook, it looked like a graveyard of people who tapped 'join' and then went to sleep.
+The current generation of drones are essentially a 'closed garden', to use an industry term - and as a developer, trying to get DJI's log-file specification out of them illustrates that, it was their non-reactive, closed behaviour that put me on the path of creating open specifications for drones in the first place. 
 
-So I'd anticipate that the current "Closed Garden" generation of drones, will quickly be over-shadowed by the new, next-gen "Drone Pig" generation of drones, driven by 'open garden' technologies and specifications. 
+The last time I saw DJI's Developer Group on Facebook, it looked like a graveyard of people who had tapped 'join' and then went to sleep.
+
+So I'd anticipate that the current "Closed Garden" generation of drones, will quickly be over-shadowed by the new, next-gen "Drone Pig" or "Smart Drone" generation of drones, driven by 'open garden' technologies and specifications. 
 
 * I wonder how Apple are going to react to this as I suspect that there are going to be more Android devices sold to satisfy this market, than Apple ever sold such products as Apple Watches. 
-* I say that because the Who™ Me app actually started as a project to create a wearable watch that would broadcast a remote pilot's location to anyone nearby who saw a drone in the sky. It only took 40 winks to realise that such a device already existed, the Android phone, all that was missing was the app! The big leap was the decision to add a 'Custom Proximity Profile Editor', accompanied by the invention of programatically characterising Well-Known and Custom needs as personas - because even inanimate objects can be personified, just ask Peppa Pig!
+* I say that because the Who™ Me app actually started as a project to create a wearable watch that would broadcast a remote pilot's location to anyone nearby who saw a drone in the sky. It only took 40 winks to realise that such a device already existed, the Android phone, all that was missing was the app! The big leap was the decision to add a 'Custom Proximity Profile Editor' instead of hardcodeing the ServiceInfoDictionary, accompanied by the invention of programatically characterising Well-Known and Custom needs as personas - because even inanimate objects can be personified, just ask Peppa Pig!
 
 ```
 Sidenote:
@@ -692,7 +747,7 @@ WHAT'S YOUR BUSINESS ACUMEN LIKE? HOW ARE YOU GOING TO POSITION YOURSELF FOR THE
 
 A good drone-pig will have break-out headers and break-out cable connectors, so that other external hardware can be connected to the app. 
 
-There's a great range of high-resolution webcams coming out that can be connected to Android devices by USB cable, and in a drone-pig context, this will give drones with such well-equipped drone-pigs, an exponential advantage over regular drones. 
+There's already a great range of high-resolution webcams coming out that can be connected to Android devices by USB cable, and in a drone-pig context, this will give drones with such well-equipped drone-pigs, an exponential advantage over regular drones. 
 
 For example, the Mavic 2 Pro might have a great camera now, but as it can't have another swapped in and out at convenient leisure, to take it's place, it is going to become dated. Old technology. 
 
@@ -704,11 +759,11 @@ However this really needs to be driven by Android themselves because the program
 
 Will it appear in Android 11, or 12, who knows? (If it already exists, I haven't been able to find the documentation!)
 
-And in a single sentence we've gone from the concept of Drone Pig to Phone Pig: a Phone Pig will be a next-gen phone with a range of GPIO connectors where we developers will be able to write an app to put in the Google Play Store so that the app can control any IoT-the-heck-we-want device that we can dream up! Its not bendy screens I want, it's standardised and well-known GPIO capacity!  
+And in a single sentence we've gone from the concept of Drone Pig to Phone Pig: a Phone Pig will be a next-gen phone with a range of GPIO connectors where we developers will be able to write an app to put in the Google Play Store so that the app can control any IoT-the-heck-device-we-want that we can dream up! Its not bendy screens I want, it's standardised and well-known GPIO capacity!  
 
 I suspect that Android will need to collaborate with Intrinsyc (who make the Snapdragon 855 Hardware Developer Kit), to kick this off, because once hardware developers create their own GPIO facilities for cellular devices, we developers will just have to do a programatic check to see if a particular device that an app is installed on, has that capability. 
 
-To a degree this capacity already exists for Raspberry Pi, because a Xamarin App that is compiled as a Microsoft UWP app can already be installed on a Raspberry Pi. And it is on our roadmap to make a version of Who™ Me that is capable of loading onto a Raspberry Pi, so that, for example, fixed locations such as Public Access Defibrillators can have dirt-cheap devices fitted that will broadcast their locations. This will become particularly powerful when we add NFC capability to the app so that users can use the same Proximity Persona to identify themselves, such as for unlocking a Public Access Defribulator Cabinet, or tapping into a ticketed event where the user got a Custom Ticketing Proximity Profile emailed to them when they made their online purchase. 
+To a degree this capacity already exists for Raspberry Pi, because a Xamarin App that is compiled as a Microsoft UWP app can already be installed on a Raspberry Pi. And it is on our roadmap to make a version of Who™ Me that is capable of loading onto a Raspberry Pi, so that, for example, fixed locations such as Public Access Defibrillators can have dirt-cheap devices fitted that will broadcast their fixed locations. This will become particularly powerful when we add NFC capability to the app so that users can use the same Proximity Persona to identify themselves, such as for unlocking a Public Access Defribulator Cabinet, or tapping into a ticketed event where the user got a Custom Ticketing Proximity Profile emailed to them when they made their online purchase. 
 
 So Android has it together, Microsoft has it together, Raspberry Pi has it together, but Apple is dragging its feet. Boom or bust! 
 
@@ -1139,9 +1194,8 @@ public void UpdateMacroInfo(string info)
 
 Bingo! There's the ```_isDisplaying``` variable! 
 
-When the ToggleCommand has set it to ```true```, it lets the MacroInfo and Timestamp properties to be set. 
-
-and when the ToggleCommand has set it to ```false```, it blocks the MacroInfo and Timestamp properties from being set.
+* When the ToggleCommand has set it to ```true```, it lets the MacroInfo and Timestamp properties be set.
+* When the ToggleCommand has set it to ```false```, it blocks the MacroInfo and Timestamp properties from being set.
 
 _But how does the ImmediatePage know which ViewModel to use?_
 
@@ -1304,7 +1358,7 @@ We will eventually create some code to send the ```receivedText``` to the Event 
 
 Although we have created this class from scratch, the significance of it is in the first line, the matter that our custom ```ImmediatePersonaBroadcastReceiver``` extends the ```BroadcastReceiver``` class.
 
-The ```BroadcastReceiver``` class is an Android Operating System class that gives us the following method:
+The ```BroadcastReceiver``` class is an Android Operating System class that forces us override the following method:
 
 ```
 public override void OnReceive(Context context, Intent intent)
@@ -1324,18 +1378,20 @@ And for the other application to be able to send such messages, the other app ha
 The Who™ Me app has registered three types of messages that it wants to broadcast, and they are as follows:
 
 ```
-cloud.whome.apps.whome.BROADCAST_IMMEDIATE_PERSONA"
-cloud.whome.apps.whome.BROADCAST_RELAYABLE_PERSONA"
-cloud.whome.apps.whome.BROADCAST_REGULAR_PERSONA"
+cloud.whome.apps.whome.BROADCAST_IMMEDIATE_PERSONA
+cloud.whome.apps.whome.BROADCAST_RELAYABLE_PERSONA
+cloud.whome.apps.whome.BROADCAST_REGULAR_PERSONA
 ```
 
-As you can see, we have designed our own registration strings that are based upon the Who™ Me domain name, but backwards - that way, there won't be a clash with any other app registering the same string to send.
+_As a sidenote, please just be aware that there are switches in the Who™ Me app Settings Page that allow these broadcasts to be switched on and off!_
+
+However, as you can see, we have designed our own registration strings that are based upon the Who™ Me domain name, but backwards - that way, there won't be a clash with any other app registering the same string to send.
 
 _But any app can register to receive messages using these message types!_
 
 You will also notice that the string in the broadcast receiver above (cloud.whome.apps.whome.SERIALISED_IMMEDIATE_INFODIC) does not match any of the three strings that the Who™ Me app registered with the operating system!
 
-This is because in the sending app, after the sending registering intent had declared the string to the operating system, it declared a child string to the same intent, and the operating systemn does not need to know about the child string.
+This is because in the sending app, after the sending registering intent had declared the string to the operating system, it declared a child string to the same intent, and the operating system does not need to know about the child string.
 
 In short, the three parent-child relationships are as follows:
 
@@ -1443,7 +1499,7 @@ public interface IUpdateMacroInfo
 }
  ```
 
- This is because we wanted all of the ViewModels except for the AboutViewModel to inplement this interface:
+ This is because we wanted all of the ViewModels except for the AboutViewModel to implement this interface:
 
  ```
     public class ImmediateViewModel : BaseViewModel, IUpdateMacroInfo
@@ -1607,7 +1663,7 @@ _updater.UpdateMacroInfo(receivedText);
 
  Notice how we are passing the ViewModel into the BroadcastReceiver - it is because each ViewModel implements the IUpdateMacroInfo interface, that we can tell each BroadcastReceiver that it is receiving an IUpdateMacroInfo, it has no idea that it is getting a ViewModel, it just knows that it can call the IUpdateMacroInfo ```UpdateMacroInfo``` method that is declared in that interface!
 
- Next, the following two lines are crucial:
+ Next, the two lines tht follow are crucial:
 
  ```
             _immediateViewModel = new ImmediateViewModel();
@@ -1710,7 +1766,9 @@ At this point, the pseudocde above becomes:
         }
 ```
 
-Note that because I used the word await to force the program to wait until the Send method had finished, I had to add the word async to the method declaration!
+Note that because I used the word await to force the program to wait until the Send method had finished, I had to add the word async to the method declaration! 
+
+For new readers of C#, this can be a little confusing at the start, but the three-ringed-circus that you need to look for in the C# tutorials are await, async, and Task. The Task is the return value, the await is the word you put infront of a line to make it wait until it has finished doing its job, and the async word you have to put in the method name that has an await in it, so that the method knows that it has an await in it. Then in turn you can await a method that has the word async in it, and suddenly we are in a hallway of mirrors where you have to put the async word in the declaration of the method in which you awaited the inside method! Very poweful!
 
 So, here's the monkey-see-monkey-do:
 
@@ -1794,7 +1852,7 @@ The exception is that the RegularBroadcastReceiver should NOT have the following
 await _eventHub.Send(receivedText, "86f9519b-fbde-4f86-828e-75f37df17665");  // Put the Persona Guid you want to filter for, here! 
 ```
 
-You might wish to ponder this, because you could create a separate EventHubService, and separate Event Hub, and send every single Regular broadcast into that Event Hub, that way you could build a map of the personas of the ™ Me world around you that interested you! But if you do that, you will also need to add the service-call line of code to the Immediate and Relayable BroadcastReceivers as well, and this is because the definition of a Regular persona is one that is neither Immediate nor Relayable.
+You might wish to ponder this, because you could create a separate EventHubService, and separate Event Hub, and send every single Regular broadcast into that Event Hub, that way you could build a map of the personas of the Who™ Me world around you that interested you! But if you do that, you will also need to add the service-call line of code to the Immediate and Relayable BroadcastReceivers as well, and this is because the definition of a Regular persona is one that is neither Immediate nor Relayable.
 
 Before we complete the Service, let's make sure that this Companion App also firehoses the Remote Pilot's "Control Station" data, straight into the same Event Hub.
 
@@ -2270,6 +2328,12 @@ git add .
 ```
 
 ```
+To add a single file from the list of modified files, so that we can make a special commit that doesn't include all of them:
+
+git add whome.Android/Services/P2pWifiService.cs
+```
+
+```
 To commit all of the files that are in the commit list:
 
 git commit -m "a description of the work you have done since the last commit" -m "another comment"
@@ -2323,7 +2387,7 @@ There are also some great source control apps with Graphic User Interfaces that 
 
 We do, however, recommend that you only use apps of this ilk, if you cant make any headway using the command line as above. 
 
-We tend to find that developers who use a GUI app instead of the command line, tend to make fewer commits each day, and generally don't comment the code as well. The command line is so much easier and faster, for those who grasp it, so making regular commits isn't a bother, as by contrast, having to open another app all the time and then close it after you have poked around here and there, can become quite annoying. 
+We tend to find that developers who use a GUI app instead of the command line, tend to make fewer commits each day, and generally don't comment the commit messages as well. The command line is so much easier and faster, for those who grasp it, so making regular commits isn't a bother, as by contrast, having to open another app all the time and then close it after you have poked around here and there, can become quite annoying. 
 
 _But, horses for courses!_
 
@@ -2337,31 +2401,31 @@ If you don't have a Microsoft Azure Account, you can get one here for free, and 
 
 https://azure.microsoft.com/en-gb/free/
 
-Once you are logged in, look for, then tap on the ```+ Create Resource``` button on the left hand side.
+### > Once you are logged in, look for, then tap on the ```+ Create Resource``` button on the left hand side.
 
 Tapping on the ```+ Create Resource``` button will have brought you to this ```New``` screen.
 
 ![](assets/1.png "")
 
-Type the words ```Event Hubs``` into the search box and tap on the ```Event Hubs``` Result.
+### > Type the words ```Event Hubs``` into the search box and tap on the ```Event Hubs``` Result.
 
 ![](assets/2.png "")
 
-Tapping on the ```Event Hubs``` result will have brought you to an ```Event Hubs``` creation screen where you can tap on the ```Create``` button.
+### > Tapping on the ```Event Hubs``` result will have brought you to an ```Event Hubs``` creation screen where you can tap on the ```Create``` button.
 
 ![](assets/3.png "")
 
-Having tapped on the ```Create``` button, you will be presented with a screen and asked to create a namespace. As you can see in the picture, this creates a url that is your namespace URL. We created a namespace of ```faademonamespace```, you will need to create your own.
+### > Having tapped on the ```Create``` button, you will be presented with a screen and asked to create a namespace. As you can see in the picture, this creates a url that is your namespace URL. We created a namespace of ```faademonamespace```, you will need to create your own.
 
 Its a good pattern to append the name of the type of the resource that you are creating, making it part of its name. That is because when you look at lists in the resource explorer, if you don't do this, it can become confusing. For example, because we were creating a namespace, we named it ```faademonamespace```.
 
 ![](assets/4.png "")
 
-Once you have created a namespace, you will have a few items to complete. In the pricing tier, go for the cheapest, even if you are on a free account.
+### > Once you have created a namespace, you will have a few items to complete. In the pricing tier, go for the cheapest, even if you are on a free account.
 
 ![](assets/5.png "")
 
-Then you will be asked to create a Resource Group. Tap on ```Create New``` here and write down on a piece of paper the name of the Resource Group.
+### > Then you will be asked to create a Resource Group. Tap on ```Create New``` here and write down on a piece of paper the name of the Resource Group.
 
 I can't stress enough how much you need to remember this name. At the end of the demo, you will delete this resource group, and when you delete it, everything else that is attached to it will also be deleted. If you have a paid account and forget to delete this, your bill will creep up, day by day!
 
@@ -2369,11 +2433,11 @@ Here's a tip - include the words ```ResourceGroup``` at the end of the name.
 
 ![](assets/6.png "")
 
-We called our Resource Group by the name ```faademoresourcegroup```
+### > We called our Resource Group by the name ```faademoresourcegroup```
 
 ![](assets/7.png "")
 
-Now choose a location for your event hub. Scroll the list until you find something close.
+### > Now choose a location for your event hub. Scroll the list until you find something close.
 
 We chose ```UK West```.
 
@@ -2383,25 +2447,25 @@ Then tap the ```Create``` button. All you have done so far is create a ```namesp
 
 ![](assets/9.png "")
 
-Once the namespace has been created, you will be presented with a screen to create an Event Hub. Bravo, we are almost here!
+### > Once the namespace has been created, you will be presented with a screen to create an Event Hub. Bravo, we are almost here!
 
 ![](assets10.png "")
 
 ![](assets/11.png "")
 
-Having tapped the ```Create``` Events hub button, you will be taken to a screen where you actualy create your event hub. Tap the ```+ Event Hub``` button.
+### > Having tapped the ```Create``` Events hub button, you will be taken to a screen where you actualy create your event hub. Tap the ```+ Event Hub``` button.
 
 ![](assets/12.png "")
 
-First, give the Event Hub a name. We called ours ```faademoeventhub```
+### > First, give the Event Hub a name. We called ours ```faademoeventhub```
 
 ![](assets/13.png "")
 
-Once you have named the event hub, click the ```Create``` button at the bottom of the screen.
+### > Once you have named the event hub, click the ```Create``` button at the bottom of the screen.
 
 ![](assets/14.png "")
 
-In the next screen, click on the ```Shared Access Policies``` button in the left menu.
+### > In the next screen, click on the ```Shared Access Policies``` button in the left menu.
 
 You will see a label that says ```no policies have been set up yet```
 
@@ -2409,7 +2473,7 @@ Tap on the ```+ Add``` button.
 
 ![](assets/15.png "")
 
-You will now be presented with a screen that says ```Add SAS Policy```. We need to add this to get our connection credentials.
+### > You will now be presented with a screen that says ```Add SAS Policy```. We need to add this to get our connection credentials.
 
 Give the SAS Policy a name. We called ours ```faademosas```
 
@@ -2421,19 +2485,19 @@ Press ```Create``` at the bottom of the screen.
 
 ![](assets/17.png "")
 
-You will now see the SAS Policy in the list where the words ```no policies have been set up yet``` used to be.
+### > You will now see the SAS Policy in the list where the words ```no policies have been set up yet``` used to be.
 
 Click on that new item!
 
 ![](assets/18.png "")
 
-You will be taken to a screen that has your connection credentials on the far right of the page.
+### > You will be taken to a screen that has your connection credentials on the far right of the page.
 
 Copy the ```connection string primary-key``` into your clip-board.
 
 ![](assets/19.png "")
 
-For the moment, minimise your Microsoft Azure Portal browser and go back to Visual Studio, to the file called ```MyAzureEventHubService```.
+### > For the moment, minimise your Microsoft Azure Portal browser and go back to Visual Studio, to the file called ```MyAzureEventHubService```.
 
 Here, you should paste your connection string as shown!
 
@@ -2441,28 +2505,28 @@ Also, paste the ```Event Hub Name``` into the ```EventHubName``` property.
 
 ![](assets/20.png "")
 
-Once you have added the connection credentials, you are ready to build the Companion App.
+### > Once you have added the connection credentials, you are ready to build the Companion App.
 
 Here, you will have to do a little research to see how to connect your specific model of mobile phone to Visual Studio.
 
-Once you have done that, you should select the Android project in the solution Explorer, Right-Click, and select "Set as Startup Project".
+### > Once you have done that:
 
-Then, at the top left of Visual Studio, you will se a label that says "Debug": tap on the Android Emulator label to the right of it, and select your phone as the Debug Build destination.
+* You should select the Android project in the solution Explorer, Right-Click, and select "Set as Startup Project".
+* Then, at the top left of Visual Studio, you will se a label that says "Debug": tap on the Android Emulator label to the right of it, and select your phone as the Debug Build destination.
+* Now, press the Green Build Arrow, and all being well, the application should build, then deploy, to your mobile device!
+* Once the Companion App is deployed to your mobile device and is up and running, then start the Who™ Me app. 
+* You want them both running at the same time!
 
-Now, press the Green Build Arrow, and all being well, the application should build, then deploy, to your mobile device!
+### > On the Who™ Me app:
 
-Once the Companion App is deployed to your mobile device and is up and running, then start the Who™ Me app. 
+* Swipe across to the ```Sending``` Tab
+* Tap the persona that says ```FAA Compliant UAV Traffic Management (V1)```
 
-You want them both running at the same time!
-
-On the Who™ Me app, swipe across to the ```Sending``` Tab and tap the persona that says ```FAA Compliant UAV Traffic Management (V1)```
-
-
-That last action will have opened the persona in the ```Sending Editor```.
+That last action will have opened the persona in the ```Sending Editor```, the following three images show the selection and then scroll-down process to the Editable fields:
 
 ![](assets/p1.jpg "")
 
-Scroll down and fill out the ```Flight Number```, ```Drone Id```, and select your country code from the ```Country Code Picker```.
+### > Scroll down and fill out the ```Flight Number```, ```Drone Id```, and select your country code from the ```Country Code Picker```.
 
 ![](assets/p2.jpg "")
 
@@ -2480,23 +2544,23 @@ Suddenly my drone has an authentic and unique Drone Id that anyone can trace bac
 
 ![](assets/p3.jpg "")
 
-Next, dismiss that screen by tapping the back button, make sure the persona is activated, and switch the Discovery Service button at the top right hand side to ON.
+### > Next, dismiss that screen by tapping the back button, make sure the persona is activated, and switch the Discovery Service button at the top right hand side to ON.
 
 ![](assets/p4.jpg "")
 
-At this point the Who Me app will start broadcassting your Persona, and if you bring the Companion App to the front, you will be able to see what the app is broadcasting, on the ```Immediate``` tab.
+### > At this point the Who Me app will start broadcassting your Persona, and if you bring the Companion App to the front, you will be able to see what the app is broadcasting, on the ```Immediate``` tab.
 
 ![](assets/p5.jpg "")
 
-So let's go back to the Azure Portal, to the Event Hub page, and tap on the ```Process Data``` button.
+### > So let's go back to the Azure Portal, to the Event Hub page, and tap on the ```Process Data``` button.
 
 ![](assets/21.png "")
 
-That will take you to an ```Explore``` button, tap on that.
+### > That will take you to an ```Explore``` button, tap on that.
 
 ![](assets/22.png "")
 
-Here, you will see that I've created a specific data query, as follows:
+### > Here, you will see that I've created a specific data query, as follows. You will notice that I looked at the dictionary information in the .whome file for this particular persona, to match the column names up with the InfoDic keys: 
 
 ```
 SELECT
@@ -2518,11 +2582,11 @@ FROM
     [faademoeventhub]
 ```
 
-And hey presto, there's a nice looking event hub!
+### > And hey presto, there's a nice looking event hub!
 
 ![](assets/data.png "")
 
-If you compare the raw results with the blue screen above that showed the raw data, you will see the original InfoDic that I turned into a query, here in Microsoft's Azure Event Hub!
+### > If you compare the raw results with the blue screen above that showed the raw data, you will see the original InfoDic that I turned into a query, here in Microsoft's Azure Event Hub! As explained earlier, missing InfoDic fields just mean that the transmitting device didn't have those values to transmit at that particular point in time.
 
 Fabulous!
 
@@ -2548,9 +2612,13 @@ Do something about it or kiss your egg goodbye!
 
 ### When you put your own Companion Apps in the Google Play Store, please let us know via ```developers@whome.cloud```, once the Who™ Me Cloud comes online, we will want to advertise those Companion Apps that we know about!
 
-# 8 Bonus Illustration!
+# 8 Automation with Exponential Potential
 
-Although we dumped the whole InfoDic in the Event Hub in a single column - because, indeed, all the properties are searchable because it is dumped in JSON format - for those wishing to know how to dump the same information with every property having its own column in the Event Hub, we have created an additional class as an illustration of how to do so!
+_Here, we build up from taking control of your back end, through dynamically automating it, to visualising how the automation of Proximity Personas that dynamically engage with each other, will optimise your opportunmity of success!_
+
+## a. Dumping data into the Event Hub in individual property columns, instead of as a single InfoDic column dump
+
+Although we dumped the whole InfoDic in the Event Hub into a single column - because, indeed, all the properties are searchable because it is dumped in JSON format - for those wishing to know how to dump the same information with every property having its own column in the Event Hub, we have created an additional class as an illustration of how to do so!
 
 ```
 
@@ -2663,7 +2731,101 @@ causes the following Event Hub columns to be created, passing into it a row of d
 Guid | Latitude | Longitude | FlightNumber | DroneId | DroneIdCountryCode | Speed | Heading | Barometric Pressure | Timestamp
 ```
 
+## b. Auto-detecting data in an Event Hub InfoDic single column
 
+You will notice that we created the following search query to extract data from the Event Hub in a specific, columnar, output format:
+
+```
+SELECT
+    InfoDic.[1] as latitude,
+    InfoDic.[2] as longitude,
+    InfoDic.[A] as flightnumber,
+    InfoDic.[B] as droneid,
+    InfoDic.[C] as droneidcountrycode,
+    InfoDic.[D] as altitude,
+    InfoDic.[E] as speed,
+    InfoDic.[F] as heading,
+    InfoDic.[G] as barometricpressure,
+    InfoDic.[H] as ticks,
+    EventProcessedUtcTime
+
+INTO
+    [OutputAlias]
+FROM
+    [faademoeventhub]
+```
+
+We manually created this query, however as it turns out, we could have used the ```KeyNameMap``` in some back end tool to generate it for us:
+
+```
+  "KeyNameMap": {
+    "1": "Latitude",
+    "2": "Longitude",
+    "A": "Flight Number",
+    "B": "Drone Id",
+    "C": "Drone Id Country Code",
+    "D": "Drone Altitude",
+    "E": "Drone Speed",
+    "F": "Drone Heading",
+    "G": "Barometric Pressure",
+    "H": "Time Stamp",
+    "I": "Immediate Macro Sync",
+    "J": "Relayable Macro Sync"
+  },
+```
+
+All a backend tool would have to do is use the KeyTypeMap dictionary of the persona to avoid the Macro key types, turn the names to lower case, and to remove the spaces in the result. Then a for loop of the dictioary, lopping through each item but avoiding the Macro keys, would allow the above SELECT query to be built dynamically.
+
+But how does the backend get the Persona definition?
+
+Here is the BroadcastInfoDic, and it contains the whole, deserialised Persona defition, in the property called Persona, hence instead of just sending the PersonaGuid and InfoDic property to the Event Hub, send the Persona property as well!
+
+```
+    public class BroadcastInfoDic
+    {
+        public string PersonaGuid { get; set; }
+        public Dictionary<string, string> InfoDic { get; set; }
+        public SharedWhoMeProfile Persona { get; set; }
+        public BroadcastInfoDic(string guid, SharedWhoMeProfile persona, Dictionary<string, string> infoDic)
+        {
+            PersonaGuid = guid;
+            InfoDic = infoDic;
+            Persona = persona;
+        }
+    }
+```
+
+## b. Building a My Who™ Me Real-World Close-Proximity Persona Recorder
+
+The last example shows you how to get the persona definitions into the Event Hubs as well as the Persona Guid and Persona InfoDic, and for that you would have to implement it in all three of the Immediate, Relayable, and Regular Broadcast Receivers, and build an IMyWhoMeWorldEventHub object that didn't filter by GUID, but passed _every single broadcast_ to the Event Hub.
+
+That would get the information into the Event Hub, and although getting it out is an advanced topic, you can see that by querying each row you can look at the Persona definition field, and use it to dynamically generate a User Interface for that row, and query the InfoDic in that row for the actual values that you want to put in the UI.
+
+And of course, it only records data from any of the Well-Known Proximity Personas that you have installed, and any of the Custom Proximity Personas that you have installed. So in context, if everyone had this facility, it would be a big Venn Diagram where only the Well-Known Proximity Personas, and commonly shared Custom Proximity Profiles, that commonly showed up on each other's screen. Chances are that any particular person would only have a subset of the personas installed that the person standing next to him, had installed.
+
+AND THAT, dear friends, will be the answer to real-world close proximity data being readily available on any device that takes a feed from any back end ... the user would just have to switch on a Persona in Send and/or Receive, and it would automatically appear on any feed that was taking it's feed from that Event Hub!
+
+Brave New World? Big Brother? Of course not, the user has the free choice to enter what persona data that they want in the Sending panes, and the freedom to switch personas on and off, in receive or send mode, and whether to switch their Broadcaster Receivers on and off, and whether to have one or another Companion apps open at the time.
+
+Of course, the latter will be refined when the Companion Apps won't have to be open to do their jobs, however even then there will be user choices as to whether their feed is enabled or not.
+
+## C. Automating Who™ Me Personas
+
+Being in the public eye is a choice, and as has already been the case for tens of thousands of years, real-world close-proximity means that they already know that you are there anyway!
+
+Sometimes the distractions of our virtual world makes us forget the significance of real-world activities, and the phrase 'being in the public eye' is rooted in the matter that real-world people could see you in real-world close-proximity in real-world-public-places.
+
+Who™ Me builds on this throwback to real-world close-proximity real-life to allow you to simultaneously present a range of different personas, depending upon the context, and contexts, of how you want to interact on the day, and at that particular moment.
+
+Similarly, those who receive what you project will be organically filtered by those who have elected those receiving contexts that suit them best, hence the capacity to dynamically relate will be optimised!
+
+It is going to be nice when we add a picker feature that allows the Sender to choose at what time his persona automatically starts broadcasting, and at what time it stops broadcasting, such as to coincide with his workday. 
+
+After that will come context switching, with responses to Persona broadcasts switching different Personas on and off.
+
+Personas automatically switching on and off according to context, time of day, activity, and capability, will drive industry, and industries, forwards at a forever faster pace!
+
+Success will become defined as one's capacity to present the right persona or personas, at the very right time.
 
 Copyright &copy; Who™ Me, 2019, 2020 
 

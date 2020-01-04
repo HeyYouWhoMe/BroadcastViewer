@@ -17,8 +17,6 @@ namespace WhoMeBroadcastReceiverViewer.Views
             base.OnAppearing();
 
             this.BindingContext = SimpleIoc.Default.GetInstance<RegularViewModel>();
-
-            Debug.WriteLine("RegularViewModel Bound");
         }
     }
 }
