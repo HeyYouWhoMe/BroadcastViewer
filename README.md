@@ -2815,17 +2815,27 @@ Being in the public eye is a choice, and as has already been the case for tens o
 
 Sometimes the distractions of our virtual world makes us forget the significance of real-world activities, and the phrase 'being in the public eye' is rooted in the matter that real-world people could see you in real-world close-proximity in real-world-public-places.
 
-Who™ Me builds on this throwback to real-world close-proximity real-life to allow you to simultaneously present a range of different personas, depending upon the context, and contexts, of how you want to interact on the day, and at that particular moment.
+Who™ Me builds on this throwback to real-world close-proximity real-life to allow you to simultaneously present a range of different personas, depending upon the context, and contexts, of how you want to interact on the day, and at that, or any particular moment.
 
-Similarly, those who receive what you project will be organically filtered by those who have elected those receiving contexts that suit them best, hence the capacity to dynamically relate will be optimised!
+Similarly, those who receive your persona projections will be organically filtered into proximity-relationship with you by those who have elected those receiving contexts that suit them best, hence their capacity to dynamically relate with you will be optimised!
 
 It is going to be nice when we add a picker feature that allows the Sender to choose at what time his persona automatically starts broadcasting, and at what time it stops broadcasting, such as to coincide with his workday. 
 
-After that will come context switching, with responses to Persona broadcasts switching different Personas on and off.
+After that will come context switching, with responses to Persona broadcasts automatically switching different Personas on and off, as well as changing particulars of the sending field values of a Persona, by other persona receptions that have both the association and authority to make such property changes.
 
-Personas automatically switching on and off according to context, time of day, activity, and capability, will drive industry, and industries, forwards at a forever faster pace!
+Personas automatically switching on and off according to context, time of day, activity, and capability, driving others to do the same, will drive industry, and industries, forwards at a forever faster pace!
 
-Success will become defined as one's capacity to present the right persona or personas, at the very right time.
+Success will become defined not just as one's capacity to present the right persona or personas, at the very right time, but to dynamically change them as well as switch them and others, on and off, according to the received inputs of the prevailing others.
+
+It's called a conversation.
+
+Dynamic.
+
+_Hey you?_
+
+**Who™ Me!**
+
+_Yeah!_
 
 Copyright &copy; Who™ Me, 2019, 2020 
 
