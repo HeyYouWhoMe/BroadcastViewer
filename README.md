@@ -700,6 +700,24 @@ Of course, right now you can't wait for the new range of drones that we believe 
 
 ![](assets/pig3.png "")
 
+These files are available in the ```Assets``` folder of the ```eventhubdemo``` branch and are made available in a variety of file extensions to suit a wide range of 3D Design abd 3D printing programs:
+
+* ```Standardised-Drone-Pig-Housing-With-DJI-Mavic2-Snap-Connection-Plate.dwg```
+* ```Standardised-Drone-Pig-Housing-With-DJI-Mavic2-Snap-Connection-Plate.dxf```
+* ```Standardised-Drone-Pig-Housing-With-DJI-Mavic2-Snap-Connection-Plate.f3d```
+* ```Standardised-Drone-Pig-Housing-With-DJI-Mavic2-Snap-Connection-Plate.fbx```
+* ```Standardised-Drone-Pig-Housing-With-DJI-Mavic2-Snap-Connection-Plate.iges```
+* ```Standardised-Drone-Pig-Housing-With-DJI-Mavic2-Snap-Connection-Plate.obj```
+* ```Standardised-Drone-Pig-Housing-With-DJI-Mavic2-Snap-Connection-Plate.sat```
+* ```Standardised-Drone-Pig-Housing-With-DJI-Mavic2-Snap-Connection-Plate.skp```
+* ```Standardised-Drone-Pig-Housing-With-DJI-Mavic2-Snap-Connection-Plate.smt```
+* ```Standardised-Drone-Pig-Housing-With-DJI-Mavic2-Snap-Connection-Plate.step```
+* ```Standardised-Drone-Pig-Housing-With-DJI-Mavic2-Snap-Connection-Plate.stl```
+* ```Standardised-Drone-Pig-Housing-With-DJI-Mavic2-Snap-Connection-Plate.zip (containing .iam and .ipt files)```
+
+_DISCLAIMER: The files are provided for free, may be changed how anyone wishes and distributed royalty free, and the maker is responsible for choosing the right extrusion material, making changes to the files that properly suit their circumstances, as well as the mechanics of whether or not fitting this device to a drone or not, and flying it in their particular circumstance, and putting in it any particular device, or not, is a wise or safe or legal thing to do. Nor do we accept any liability for any drones that are damaged in the process of fitting this device to it, or damaged before-flight, in-flight, or after-flight, for whatever reason that the damage may occur. Nor, in connection with this product do we offer ourselves as Product Design Professionals who can be presumed or assumed to have followed industry standard practices or rules in designing or distributing these files, or presenting the results of how we used them ourselves. We're just giving you a fair crack of the whip, and the files are provided to you on the basis that in connection with them, that you nod to our grace in having provided them to you, and that  you stand on your own two feet. If in any sense that you are not sure that we are totally and irretrievably disconnected from the matter of your use of these files, you are not to use them._
+
+## Etymology of the name 'Drone Pig', and it's Evolution as a Product
 
 We define a "Drone-Pig" as a device that can be added to a drone that has the capacity to download apps from the Google Play Store. It gets it's name from the word 'acorn', in the etymolgy of the word pig, vis-a-vis ```from the first element of Old English picbrēd ‘acorn’``` - and of course, from acorns, great old oaks do grow, and the capacity to install apps from the Google Play Store will accelerate this industry forwards! 
 
