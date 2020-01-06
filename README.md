@@ -2632,7 +2632,7 @@ Do something about it or kiss your egg goodbye!
 
 # 8 Automation with Exponential Potential
 
-_Here, we build up from taking control of your back end, through dynamically automating it, to visualising how the automation of Proximity Personas that dynamically engage with each other, will optimise your opportunmity of success!_
+_Here, we build up from taking control of your back end, through dynamically automating it, to visualising how the automation of Proximity Personas that dynamically engage with each other, will optimise your opportunity of success!_
 
 ## a. Dumping data into the Event Hub in individual property columns, instead of as a single InfoDic column dump
 
@@ -2792,7 +2792,7 @@ We manually created this query, however as it turns out, we could have used the 
   },
 ```
 
-All a backend tool would have to do is use the KeyTypeMap dictionary of the persona to avoid the Macro key types, turn the names to lower case, and to remove the spaces in the result. Then a for loop of the dictioary, lopping through each item but avoiding the Macro keys, would allow the above SELECT query to be built dynamically.
+All a backend tool would have to do is use the KeyTypeMap dictionary of the persona to avoid the Macro key types, turn the names to lower case, and to remove the spaces in the result. Then a for loop of the dictionary, looping through each item but avoiding the Macro keys, would allow the above SELECT query to be built dynamically.
 
 But how does the backend get the Persona definition?
 
@@ -2813,7 +2813,7 @@ Here is the BroadcastInfoDic, and it contains the whole, deserialised Persona de
     }
 ```
 
-## b. Building a My Who™ Me Real-World Close-Proximity Persona Recorder
+## c. Building a My Who™ Me Real-World Close-Proximity Persona Recorder
 
 The last example shows you how to get the persona definitions into the Event Hubs as well as the Persona Guid and Persona InfoDic, and for that you would have to implement it in all three of the Immediate, Relayable, and Regular Broadcast Receivers, and build an IMyWhoMeWorldEventHub object that didn't filter by GUID, but passed _every single broadcast_ to the Event Hub.
 
@@ -2827,7 +2827,7 @@ Brave New World? Big Brother? Of course not, the user has the free choice to ent
 
 Of course, the latter will be refined when the Companion Apps won't have to be open to do their jobs, however even then there will be user choices as to whether their feed is enabled or not.
 
-## C. Automating Who™ Me Personas
+## d. Automating Who™ Me Personas
 
 Being in the public eye is organic, and as has already been the case for tens of thousands of years, real-world close-proximity means that 'they already know that you are there' anyway!
 
@@ -2845,7 +2845,7 @@ After that will come context switching, with responses to Persona broadcasts aut
 
 Personas automatically switching on and off according to context, time of day, activity, and capability, driving others to do the same, will drive industry, and industries, forwards at a forever faster pace!
 
-Success will become defined not just as one's capacity to present the right persona or personas, at the very right time, but one's capacity to dynamically change them over time as well as switch them and others, on and off, doing so according to the received inputs of the prevailing others.
+Success will become defined not just as one's capacity to present the right persona or personas, at the very right time, but one's capacity to dynamically change them over time as well as switch them and others, on and off, doing so according to the received inputs of the prevailing whole.
 
 It's called a conversation.
 
