@@ -37,7 +37,7 @@
 
 * Visualise how you can create independant 'decloupled' applications that can retrieve this information to display this information on a map, or forward it to an FAA UAV DA (Data Aggregator) so that others can view your flight data in real-time. We will give you some great pointers here, and eventually create tutorials that give you some out-of-the-box applications that you can use as-is, or modify for your own needs. 
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/data.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/data.png "")
 
 ## At the completion of this tutorial you will be able to:
 
