@@ -2437,7 +2437,7 @@ Tapping on the ```+ Create Resource``` button will have brought you to this ```N
 
 Its a good pattern to append the name of the type of the resource that you are creating, making it part of its name. That is because when you look at lists in the resource explorer, if you don't do this, it can become confusing. For example, because we were creating a namespace, we named it ```faademonamespace```.
 
-![](assets/4.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/4.png "")
 
 ### > Once you have created a namespace, you will have a few items to complete. In the pricing tier, go for the cheapest, even if you are on a free account.
 
