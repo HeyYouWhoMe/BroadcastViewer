@@ -53,7 +53,7 @@
 
 Code illustration:
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/code1.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/code1.png "")
 
 <br />
 
@@ -81,7 +81,7 @@ This action would require the remote identification of unmanned aircraft systems
 
 Extract from the document's facepage:
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/extract1.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/extract1.png "")
 
 <br />
 
@@ -89,7 +89,7 @@ Extract from the document's facepage:
 
 Event Hubs are a special type of cloud and are designed to accept astronomical amounts of parallel data sets being 'ingressed' into the event hub in parallel. 
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/EventHubGraphic.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/EventHubGraphic.png "")
 
 You will notice in the diagram that a single Event Hub can accommodate more simultaneaous drone and pilot ingestions per second, than there are registered Remote Pilots in the UK!
 
@@ -336,7 +336,7 @@ The reason why barometric pressure is reported is because it can be used to deri
 
 _Also, so much for anonymity, all of the GPS locations and photos are the location of my workshop, so if you are going to stalk me, please bring beer and pizza, and a whopping sense of humour!_
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/data2.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/data2.png "")
 
 
 
@@ -386,7 +386,7 @@ Who™ Me is presently in a private Beta Closed Testing phase but it's public re
 
 The Google Play Store informs us that is is capable of being installed on 11750 device models, and we have tested it on over a hundred devices.
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/store1.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/store1.png "")
 
 # 2. Create a Custom Proximity Persona™ using the Who™ Me app and then export it as a .whome text file
 
@@ -694,11 +694,11 @@ Of course, right now you can't wait for the new range of drones that we believe 
 
 * We fly this drone-pig housing on a Mavic 2 Pro, which for obvious reasons, we have named Hooty-Tooty ('Who' Me, reporting it's position as a toot). Hooty represents an epoch in the industry. We are looking forward to manufacturers distributing this drone-pig housing for a range of off-the-shelf drones, with the idea that parts should be inter-changeable between manufacturers. The files are open-source and royalty free, and we hope that other designers can improve on the files, so long as the standard dimensions of the yellow part are preserved. We don't mind if those who recreate files to suit the standardised dimensions, charge for the files, or only distribute .stl versions of it. We do, however, hope that this design will eventually be superceded by a similar open-hardware design that is created by a council of manufacturers getting together and agreeing on a standardised, inter-changeable parts design that will properly be adverse-weather resistant, and ideally water-proof. People who buy drones of the ilk of the Mavic 2 Pro, or are commited to building their own FPV drones, typically have quite a good disposable income, so adding a cellular device to their drone-kit will be second nature to a whole host of them. For the moment we will just have to be content with the offering that is made available here, because for now, a google search for "Drone Pig" just retrieves some funny pictures! 
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/pig1.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/pig1.png "")
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/pig2.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/pig2.png "")
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/pig3.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/pig3.png "")
 
 These files are available in the ```Assets``` folder of the ```eventhubdemo``` branch and are made available in a variety of file extensions to suit a wide range of 3D Design abd 3D printing programs:
 
@@ -2289,7 +2289,7 @@ And while you are at it, change the Application Name, and any of the images, tex
 
 Nobody should use any package name starting with ```cloud.whome...``` because we own the domain name ```whome.cloud```.
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/code2.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/code2.png "")
 
 So that's all the coding done - with the exception of just needing to paste in the Event Hub Credentials, after we have created the Event Hub!
 
@@ -2423,15 +2423,15 @@ https://azure.microsoft.com/en-gb/free/
 
 Tapping on the ```+ Create Resource``` button will have brought you to this ```New``` screen.
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/1.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/1.png "")
 
 ### > Type the words ```Event Hubs``` into the search box and tap on the ```Event Hubs``` Result.
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/2.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/2.png "")
 
 ### > Tapping on the ```Event Hubs``` result will have brought you to an ```Event Hubs``` creation screen where you can tap on the ```Create``` button.
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/3.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/3.png "")
 
 ### > Having tapped on the ```Create``` button, you will be presented with a screen and asked to create a namespace. As you can see in the picture, this creates a url that is your namespace URL. We created a namespace of ```faademonamespace```, you will need to create your own.
 
@@ -2441,7 +2441,7 @@ Its a good pattern to append the name of the type of the resource that you are c
 
 ### > Once you have created a namespace, you will have a few items to complete. In the pricing tier, go for the cheapest, even if you are on a free account.
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/5.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/5.png "")
 
 ### > Then you will be asked to create a Resource Group. Tap on ```Create New``` here and write down on a piece of paper the name of the Resource Group.
 
@@ -2449,11 +2449,11 @@ I can't stress enough how much you need to remember this name. At the end of the
 
 Here's a tip - include the words ```ResourceGroup``` at the end of the name.
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/6.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/6.png "")
 
 ### > We called our Resource Group by the name ```faademoresourcegroup```
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/7.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/7.png "")
 
 ### > Now choose a location for your event hub. Scroll the list until you find something close.
 
@@ -2461,27 +2461,27 @@ We chose ```UK West```.
 
 Then tap the ```Create``` button. All you have done so far is create a ```namespace```
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/8.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/8.png "")
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/9.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/9.png "")
 
 ### > Once the namespace has been created, you will be presented with a screen to create an Event Hub. Bravo, we are almost here!
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets10.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets10.png "")
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/11.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/11.png "")
 
 ### > Having tapped the ```Create``` Events hub button, you will be taken to a screen where you actualy create your event hub. Tap the ```+ Event Hub``` button.
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/12.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/12.png "")
 
 ### > First, give the Event Hub a name. We called ours ```faademoeventhub```
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/13.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/13.png "")
 
 ### > Once you have named the event hub, click the ```Create``` button at the bottom of the screen.
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/14.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/14.png "")
 
 ### > In the next screen, click on the ```Shared Access Policies``` button in the left menu.
 
@@ -2489,7 +2489,7 @@ You will see a label that says ```no policies have been set up yet```
 
 Tap on the ```+ Add``` button.
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/15.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/15.png "")
 
 ### > You will now be presented with a screen that says ```Add SAS Policy```. We need to add this to get our connection credentials.
 
@@ -2501,19 +2501,19 @@ This means that anything that uses the connection credentials that we will get, 
 
 Press ```Create``` at the bottom of the screen.
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/17.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/17.png "")
 
 ### > You will now see the SAS Policy in the list where the words ```no policies have been set up yet``` used to be.
 
 Click on that new item!
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/18.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/18.png "")
 
 ### > You will be taken to a screen that has your connection credentials on the far right of the page.
 
 Copy the ```connection string primary-key``` into your clip-board.
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/19.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/19.png "")
 
 ### > For the moment, minimise your Microsoft Azure Portal browser and go back to Visual Studio, to the file called ```MyAzureEventHubService```.
 
@@ -2521,7 +2521,7 @@ Here, you should paste your connection string as shown!
 
 Also, paste the ```Event Hub Name``` into the ```EventHubName``` property.
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/20.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/20.png "")
 
 ### > Once you have added the connection credentials, you are ready to build the Companion App.
 
@@ -2542,11 +2542,11 @@ Here, you will have to do a little research to see how to connect your specific 
 
 That last action will have opened the persona in the ```Sending Editor```, the following three images show the selection and then scroll-down process to the Editable fields:
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/p1.jpg "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/p1.jpg "")
 
 ### > Scroll down and fill out the ```Flight Number```, ```Drone Id```, and select your country code from the ```Country Code Picker```.
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/p2.jpg "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/p2.jpg "")
 
 Here's a tip about the drone id - and what you do will depend upon your own country's localisation.
 
@@ -2560,23 +2560,23 @@ Then in the next field, the Drone Id Country Code, I select the country code for
 
 Suddenly my drone has an authentic and unique Drone Id that anyone can trace back to me!
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/p3.jpg "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/p3.jpg "")
 
 ### > Next, dismiss that screen by tapping the back button, make sure the persona is activated, and switch the Discovery Service button at the top right hand side to ON.
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/p4.jpg "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/p4.jpg "")
 
 ### > At this point the Who Me app will start broadcassting your Persona, and if you bring the Companion App to the front, you will be able to see what the app is broadcasting, on the ```Immediate``` tab.
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/p5.jpg "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/p5.jpg "")
 
 ### > So let's go back to the Azure Portal, to the Event Hub page, and tap on the ```Process Data``` button.
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/21.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/21.png "")
 
 ### > That will take you to an ```Explore``` button, tap on that.
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/22.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/22.png "")
 
 ### > Here, you will see that I've created a specific data query, as follows. You will notice that I looked at the dictionary information in the .whome file for this particular persona, to match the column names up with the InfoDic keys: 
 
@@ -2602,13 +2602,13 @@ FROM
 
 ### > And hey presto, there's a nice looking event hub!
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/data.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/data.png "")
 
 ### > If you compare the raw results with the blue screen above that showed the raw data, you will see the original InfoDic that I turned into a query, here in Microsoft's Azure Event Hub! As explained earlier, missing InfoDic fields just mean that the transmitting device didn't have those values to transmit at that particular point in time.
 
 Fabulous!
 
-![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/assets/data2.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/data2.png "")
 
 (The data illustrations here only contain the drone transmissions from the drone, because we said at the outset that we were concentrating on it.)
 
