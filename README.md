@@ -25,7 +25,7 @@
 
 * Similarly, we show you how the drone companion app can transmit the Remote Pilot's Control Station data straight into the Event Hub, in case the Remote Pilot loses his celluilar connection!
 
-![screenshot](https://github.com/HeyYouWhoMe/BroadcastViewer/raw/eventhubsdemo/assets/headliner1.png "")
+![](https://raw.githubusercontent.com/HeyYouWhoMe/BroadcastViewer/eventhubsdemo/Assets/headliner1.png "")
 
 ## In this Tutorial You will:
 
